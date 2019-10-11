@@ -4,8 +4,8 @@
       <div class="form">
         <header><span>登录</span></header>
         <main>
-          <InputC class="user-input" :input_info="{name: '用户名', icon: 'user'}" @getValue="getUser($event)"></InputC>
-          <InputC class="password-input" :input_info="{name: '密码', icon: 'lock'}" @getValue="getPassword($event)"></InputC>
+          <InputC class="user-input" :input_info="{name: '用户名', icon: 'user'}" @log="userLog" @getValue="getData('user_number', $event)"></InputC>
+          <InputC class="password-input" :input_info="{name: '密码', icon: 'lock'}" @log="userLog" @getValue="getData('password', $event)"></InputC>
           <div class="login-button">
             <button class="button" @click="userLog">
               登录
@@ -29,7 +29,12 @@ export default {
       password: ""
     }
   },
-  methods
+  methods,
+  created () {
+    if (this.$store.state.user_state.login) {
+      this.$router.push("/")
+    }
+  }
 }
 </script>
 

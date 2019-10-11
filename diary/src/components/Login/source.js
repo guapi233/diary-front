@@ -1,26 +1,36 @@
 import config from "../../config"
 
 export const methods = {
-  getUser (userNumber) {
-    this.user_number = userNumber
-  },
-  getPassword (password) {
-    this.password = password
+  // 获取子组件“输入框”中的数据
+  getData (key, userNumber) {
+    this[key] = userNumber
   },
   async userLog () {
     let res = await this.$axios({
       method: "POST",
       url: `${config.serverIp}/user/login`,
       data: {
-        user: this.user_number,
-        password: this.password
+        user: this.user_number || "",
+        password: this.password || ""
       }
     })
     res = res.data
 
+    if (res.result) {
+      // 写入登陆状态, 跳转至Home页
+      setTimeout(( )=> {
+        this.$store.commit("setUser", res.data)
+        this.$router.push("/")
+        // 关闭弹窗
+        this.$message.close()
+      }, 1000)
+    }
+
+    // 弹窗显示登陆结果
     let messageInfo = {
       message: res.message,
-      type: res.result ? "success" : "error"
+      type: res.result ? "success" : "error",
+      duration: 1000
     }
     this.$message(messageInfo)
   }

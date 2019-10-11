@@ -12,9 +12,12 @@
 import Nav from "./Nav"
 import Wrapper from "./Wrapper"
 import Functions from "./Functions"
+import tools from "../../../static/tools"
 export default {
-  components: {Nav, Wrapper, Functions}
-
+  components: {Nav, Wrapper, Functions},
+  created () {
+    tools.checkLogin(this)
+  }
 }
 </script>
 

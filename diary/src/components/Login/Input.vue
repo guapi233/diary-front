@@ -26,11 +26,23 @@ export default {
   },
   methods: {
     inputFocus () {
+      let iarea = this.$refs.input_area
+      // 动态特效
       this.$refs.user_icon.style.color = "#a64bf4"
       this.$refs.pass_eye && (this.$refs.pass_eye.style.display = "block")
 
-      if (this.$refs.input_area.value === "") {
-        this.$refs.input_area.placeholder = ""
+      if (iarea.value === "") {
+        iarea.placeholder = ""
+      }
+
+      // input聚焦时获取“回车登陆”
+      document.onkeyup = (ev) => {
+        if (ev.keyCode === 13 && iarea.value !== "") {
+          // 因向父组件传递输入框数据的条件是失焦，所以直接回车提交前要先同步父组件中的数据
+          this.$emit("getValue", this.input_value)
+          // 发送提交请求
+          this.$emit("log")
+        }
       }
     },
     inputBlur () {
