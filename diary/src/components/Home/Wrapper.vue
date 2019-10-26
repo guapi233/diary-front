@@ -1,27 +1,43 @@
 <template>
   <div id="wrapper">
     <div class="wrapper-user-info">
-      <el-avatar class="avatar" :size="72" :src="'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'" :fit="'cover'">
-         <img src="https://cube.elemecdn.com/e/fd/0fc7d20532fdaf769a25683617711png.png"/>
+      <el-avatar class="avatar" :size="72" :src="userInfo.avatar" :fit="'cover'">
+         <img :src="defaultAvatarPath"/>
       </el-avatar>
       <div class="user-box">
         <div>
-          <span class="user-name">用户名</span>
-          <span class="user-age">200</span>
+          <span class="user-name">{{userInfo.name}}</span>
+          <span class="user-age">{{createdDate}}</span>
         </div>
-        <input type="text" class="user-sign" maxlength="40" placeholder="编辑个性签名">
+        <input type="text" class="user-sign" maxlength="40" v-model="userInfo.sign" placeholder="编辑个性签名">
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import tools from "../../../static/tools.js"
+import config from "../../config.js"
 export default {
   data () {
     return {
     }
   },
+  computed: {
+    userInfo () {
+      return tools.getUserInfo()
+    },
+    defaultAvatarPath () {
+      return `${config.serverIp}/img/defaultAvatar.jpg`
+    },
+    createdDate () {
+      return tools.getCreatedDate(this.userInfo.createTime)
+    }
+  },
   methods: {
+  },
+  created () {
+
   }
 }
 </script>
@@ -53,11 +69,15 @@ export default {
   }
 
   .user-age {
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
     font-size: 12px;
-    background: red;
+    background: rgba(255, 255, 255, 0.568);
     border-radius: 5px;
     padding: 2px;
-    color: rgba(255, 255, 255, 0.651);
+    color: #27ae60;
+    font-weight: 700;
   }
 
   .user-name {
@@ -92,7 +112,7 @@ export default {
 
   #wrapper {
     min-height: 200px;
-    background: url("https://i0.hdslb.com/bfs/space/0ad193946df21899c6cc69fc36484a7f96e22f75.png") no-repeat;
+    background-color: rgba(255, 255, 255, .3);
     background-size: cover;
     overflow: hidden;
   }

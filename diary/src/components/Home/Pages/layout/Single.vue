@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <div><slot /></div>
+    <slot />
   </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
 </script>
 
 <style scoped>
-  #main {
-    overflow: hidden;
+  #main > div{
+    min-height: 560px;
+    margin-bottom: 20px;
   }
 </style>

@@ -1,6 +1,7 @@
 export default {
   // 服务地址
   serverIp: "http://localhost:8181",
+
   // 功能列表
   function_list: [
     {
@@ -19,14 +20,12 @@ export default {
       to: "todo"
     },
     {
-      name: "写作",
-      icon: "pen",
-      to: "write"
-    },
-    {
       name: "设置",
       icon: "cog",
       to: "setting"
     }
-  ]
+  ],
+
+  // 信息保留时长
+  messageTime: 2000
 }

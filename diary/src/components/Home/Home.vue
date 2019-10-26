@@ -1,7 +1,7 @@
 <template>
   <div id="whole">
-    <Nav></Nav>
-    <div id="main">
+    <Nav />
+    <div class="main">
       <Wrapper />
       <Functions />
     </div>
@@ -22,14 +22,14 @@ export default {
 </script>
 
 <style scoped>
-  #main {
+  .main {
     width: 1200px;
     margin: 0 auto;
   }
 
   #whole {
-    background-color: #f6f6f6;
     min-height: 100vh;
+    /* overflow: auto; */
   }
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="d-left">
-    <div class="chapter-s">
-      <Chapter />
+    <div class="chapter-s" v-for="item in diaryInfoList" :key="item.dID" >
+      <Chapter :diaryInfo="item" />
       <el-divider></el-divider>
     </div>
   </div>
@@ -9,8 +9,25 @@
 
 <script>
 import Chapter from "../Chapter"
+import config from "../../../../config.js"
 export default {
-  components: {Chapter}
+  components: {Chapter},
+  data () {
+    return {
+      diaryInfoList: []
+    }
+  },
+  async created () {
+    let res = await this.$axios({
+      method: "GET",
+      url: `${config.serverIp}/diary`
+    })
+    res = res.data
+
+    if (res.result) {
+      this.diaryInfoList = res.data
+    }
+  }
 }
 </script>
 

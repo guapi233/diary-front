@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div class="main">
     <div class="left"><slot name="left" /></div>
     <div class="right"><slot name="right" /></div>
   </div>
@@ -21,12 +21,12 @@ export default {
   }
 
   .left > div {
-    min-height: 600px;
+    min-height: 560px;
     margin-right: 10px;
     margin-bottom: 20px;
   }
 
-  #main {
+  .main {
     display: flex;
   }
 </style>

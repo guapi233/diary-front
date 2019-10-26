@@ -5,8 +5,8 @@ import Home from "@/components/Home/Home"
 import Phome from "@/components/Home/Pages/Home"
 import Diary from "@/components/Home/Pages/Diary"
 import Setting from "@/components/Home/Pages/Setting"
-import Write from "@/components/Home/Pages/Write"
 import Todo from "@/components/Home/Pages/Todo"
+import Read from "@/components/Read/Read"
 
 Vue.use(Router)
 
@@ -37,11 +37,6 @@ export default new Router({
           component: Setting
         },
         {
-          path: "/write",
-          name: "write",
-          component: Write
-        },
-        {
           path: "/todo",
           name: "todo",
           component: Todo
@@ -52,6 +47,11 @@ export default new Router({
       path: "/login",
       name: "Login",
       component: Login
+    },
+    {
+      path: "/read/:id",
+      name: "read",
+      component: Read
     }
   ]
 })

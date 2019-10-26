@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div>
     <L7r3>
       <Hleft slot="left" />
       <Hright slot="right" />

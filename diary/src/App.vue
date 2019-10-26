@@ -1,12 +1,29 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div id="backboard"></div>
+    <router-view v-if="isShow" />
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      isShow: true
+    }
+  },
+  provide () {
+    return {
+      reload: this.reload
+    }
+  },
+  methods: {
+    async reload () {
+      this.isShow = false
+      await this.$nextTick()
+      this.isShow = true
+    }
+  }
 }
 </script>
 
@@ -16,13 +33,22 @@ export default {
     padding: 0;
   }
 
-  html, body {
+  #backboard {
+    background: url("./assets/5.jpg") no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
     height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1000;
   }
 
+  html {height: 100%;}
+
   body {
+    /* overflow: hidden; */
     font-family: Microsoft Yahei;
-    overflow-x: hidden;
   }
 
   div ,input {

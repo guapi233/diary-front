@@ -1,4 +1,5 @@
 import config from "../../config"
+import tools from "../../../static/tools"
 
 export const methods = {
   // 获取子组件“输入框”中的数据
@@ -18,7 +19,9 @@ export const methods = {
 
     if (res.result) {
       // 写入登陆状态, 跳转至Home页
-      setTimeout(( )=> {
+      window.localStorage["userInfo"] = JSON.stringify(res.data)
+
+      setTimeout(() => {
         this.$store.commit("setUser", res.data)
         this.$router.push("/")
         // 关闭弹窗
@@ -26,12 +29,6 @@ export const methods = {
       }, 1000)
     }
 
-    // 弹窗显示登陆结果
-    let messageInfo = {
-      message: res.message,
-      type: res.result ? "success" : "error",
-      duration: 1000
-    }
-    this.$message(messageInfo)
+    tools.resMessage(res, this)
   }
 }

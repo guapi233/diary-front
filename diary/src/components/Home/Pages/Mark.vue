@@ -5,7 +5,11 @@
 <script>
 import "github-markdown-css"
 export default {
-  props: ["input"],
+  props: {
+    input: {
+      default: ""
+    }
+  },
   computed: {
     compiledMarkdown () {
       return this.$marked(this.input)
@@ -15,6 +19,10 @@ export default {
 </script>
 
 <style scoped>
+  .aa img {
+    width: 100%;
+  }
+
   .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
@@ -23,15 +31,7 @@ export default {
     padding: 15px;
     font-size: 20px;
     position: relative;
-  }
-
-  .markdown-body::before {
-    content: "review";
-    color: #3742fa;
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    font-size: 12px;
+    z-index: 1;
   }
 
   @media (max-width: 767px) {
