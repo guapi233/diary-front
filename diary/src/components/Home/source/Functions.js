@@ -9,7 +9,7 @@ export const methods = {
   changePage (to, index) {
     if (this.$route.name !== to) {
       this.$store.commit("setFunctionNow", index)
-      this.$router.push({
+      this.$router.replace({
         path: `/${to}`
       })
     }

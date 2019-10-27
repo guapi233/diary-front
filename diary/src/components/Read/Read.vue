@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     musicList () {
-      if (this.diaryInfo.music) return JSON.parse(this.diaryInfo.music)
+      if (this.diaryInfo.music) return JSON.parse(this.diaryInfo.music) || []
     }
   },
   methods: {

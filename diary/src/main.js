@@ -45,11 +45,6 @@ marked.setOptions({
 })
 Vue.prototype.$marked = marked
 
-// 路由跳转之后滚至页顶
-router.afterEach((to, from, next) => {
-  window.scrollTo(0, 0)
-})
-
 /* eslint-disable no-new */
 new Vue({
   el: "#app",

@@ -51,8 +51,16 @@ export default {
     // 监视音乐控制器的播放与暂停
     state (value) {
       if (value) {
-        this.$refs.audioE.play()
-        this.$refs.musicIcon.style.animationPlayState = "running"
+        // 没有音频的话提示
+        if (!this.musicList[0]) {
+          this.$message({
+            type: "error",
+            message: "这篇文章还没有上传任何音频哦  : ("
+          })
+        } else {
+          this.$refs.audioE.play()
+          this.$refs.musicIcon.style.animationPlayState = "running"
+        }
       } else {
         this.$refs.audioE.pause()
         this.$refs.musicIcon.style.animationPlayState = "paused"

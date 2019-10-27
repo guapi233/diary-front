@@ -10,7 +10,8 @@ import Read from "@/components/Read/Read"
 
 Vue.use(Router)
 
-export default new Router({
+// 后期配置为lazy load
+const router = new Router({
   routes: [
     {
       path: "/",
@@ -55,3 +56,10 @@ export default new Router({
     }
   ]
 })
+
+// 路由跳转之后滚至页顶
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
+})
+
+export default router
