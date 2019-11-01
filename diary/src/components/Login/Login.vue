@@ -21,6 +21,7 @@
 <script>
 import InputC from "./Input"
 import {methods} from "./source"
+import tools from "../../../static/tools"
 export default {
   components: {InputC},
   data () {
@@ -31,7 +32,7 @@ export default {
   },
   methods,
   created () {
-    if (this.$store.state.user_state.login) {
+    if (tools.checkLogin()) {
       this.$router.push("/")
     }
   }

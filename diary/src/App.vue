@@ -70,4 +70,8 @@ export default {
   a:hover {
     color: #1e90ff;
   }
+
+  .rtext {text-align: right;}
+  .ltext {text-align: left;}
+  .ctext {text-align: center;}
 </style>

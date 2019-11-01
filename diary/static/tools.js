@@ -87,6 +87,8 @@ export default {
         
     if (num === 1) {
         return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()}\t\t${time.getHours()}:${time.getMinutes() >=10 ? time.getMinutes() : "0" + time.getMinutes()}`
+    } else if (num === 2) {
+      return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()}`
     }
   },
 
@@ -201,7 +203,7 @@ export default {
 
     files.forEach(item => {
       let name = item.name.substr(-3)
-      let rule = /mp3/i
+      let rule = /[mp3|m4a]/i
       if (!rule.test(name)) isMusicFile = false
     })
 

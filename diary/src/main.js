@@ -9,7 +9,7 @@ import highlightjs from "highlight.js"
 import axios from "axios"
 import "vue-awesome/icons"
 import Icon from "vue-awesome/components/Icon"
-import {Input, Message, Avatar, Divider, Image, Carousel, CarouselItem, Drawer, Button, Loading, MessageBox} from "element-ui"
+import {Input, Message, Avatar, Divider, Image, Carousel, CarouselItem, Drawer, Button, Loading, MessageBox, Dialog, Form, FormItem} from "element-ui"
 
 Vue.config.productionTip = false
 
@@ -23,6 +23,9 @@ Vue.use(CarouselItem)
 Vue.use(Drawer)
 Vue.use(Button)
 Vue.use(Loading)
+Vue.use(Dialog)
+Vue.use(Form)
+Vue.use(FormItem)
 
 // console.log(VueHighlight)
 // 语法高亮
@@ -33,6 +36,7 @@ Vue.component(Message)
 Vue.component(MessageBox)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
 Vue.prototype.$highlight = highlightjs
 
 // 允许携带cookie
