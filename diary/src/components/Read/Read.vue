@@ -1,6 +1,6 @@
 <template>
   <div id="whole">
-    <div class="return-home"><router-link to="/">←</router-link></div>
+    <div class="return-home"><router-link to="/diary">←</router-link></div>
     <div class="modify"><a href="javascript:;" @click="write_page=true">修改</a></div>
     <div id="wrrap">
       <!-- 音乐播放 -->
