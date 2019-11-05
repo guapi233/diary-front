@@ -21,7 +21,7 @@
 <script>
 import InputC from "./Input"
 import {methods} from "./source"
-import tools from "../../../static/tools"
+import config from "../../config"
 export default {
   components: {InputC},
   data () {
@@ -31,8 +31,11 @@ export default {
     }
   },
   methods,
-  created () {
-    if (tools.checkLogin()) {
+  async created () {
+    let res = await this.$axios(`${config.serverIp}/user`)
+    res = res.data
+
+    if (res.result) {
       this.$router.push("/")
     }
   }

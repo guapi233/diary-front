@@ -9,7 +9,7 @@ import highlightjs from "highlight.js"
 import axios from "axios"
 import "vue-awesome/icons"
 import Icon from "vue-awesome/components/Icon"
-import {Input, Message, Avatar, Divider, Image, Carousel, CarouselItem, Drawer, Button, Loading, MessageBox, Dialog, Form, FormItem} from "element-ui"
+import {Input, Message, Avatar, Divider, Image, Carousel, CarouselItem, Drawer, Button, Loading, MessageBox, Dialog, Form, FormItem, Table, TableColumn, Switch} from "element-ui"
 
 Vue.config.productionTip = false
 
@@ -26,6 +26,9 @@ Vue.use(Loading)
 Vue.use(Dialog)
 Vue.use(Form)
 Vue.use(FormItem)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Switch)
 
 // console.log(VueHighlight)
 // 语法高亮

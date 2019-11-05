@@ -7,22 +7,32 @@ export default {
     {
       name: "主页",
       icon: "home",
-      to: "home"
+      to: "home",
+      no: 0
     },
     {
       name: "日记",
       icon: "book",
-      to: "diary"
+      to: "diary",
+      no: 1
     },
     {
       name: "待做",
       icon: "clock",
-      to: "todo"
+      to: "todo",
+      no: 2
+    },
+    {
+      name: "流水",
+      icon: "calendar",
+      to: "plan",
+      no: 3
     },
     {
       name: "设置",
       icon: "cog",
-      to: "setting"
+      to: "setting",
+      no: 4
     }
   ],
 

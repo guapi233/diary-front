@@ -23,7 +23,7 @@ export default {
       url: `${config.serverIp}/diary`
     })
     res = res.data
-
+    console.log(res)
     if (res.result) {
       this.diaryInfoList = res.data
     }

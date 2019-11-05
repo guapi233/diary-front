@@ -14,7 +14,7 @@ export default {
           vue.$router.replace({
             path: "/login"
           })
-        }else {
+        } else {
           resolve(true)
         }
       }).catch(error => {
@@ -72,9 +72,11 @@ export default {
     }
     vue.$message(messageInfo)
 
-    setTimeout(() => {
-      fn && fn()
-    }, config.messageTime);
+    if (res.result) {
+      setTimeout(() => {
+        fn && fn()
+      }, config.messageTime);
+    }
   },
 
   /**

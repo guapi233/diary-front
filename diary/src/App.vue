@@ -74,4 +74,6 @@ export default {
   .rtext {text-align: right;}
   .ltext {text-align: left;}
   .ctext {text-align: center;}
+
+  .m-top15 {margin-top: 15px;}
 </style>

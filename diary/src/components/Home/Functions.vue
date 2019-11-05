@@ -3,7 +3,7 @@
     <div id="box">
     <div id="function-list">
       <a v-for="(item, index) in function_list"
-        :key="item.name" class="function" :class="[index === activer ? 'active' : '']"
+        :key="item.name" class="function" :class="[index == activer ? 'active' : '']"
         @mouseenter="active(index)" @mouseleave="cancel" @click="changePage(item.to, index)">
         <v-icon class="function-icon" :name="item.icon"></v-icon>
         <span>{{item.name}}</span>

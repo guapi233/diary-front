@@ -7,7 +7,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     // 当前功能模块
-    function_now: 0,
+    function_now: window.localStorage["functionNow"],
     // 功能列表
     function_list: config.function_list,
     // 用户状态
